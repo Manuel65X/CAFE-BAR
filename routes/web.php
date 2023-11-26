@@ -18,9 +18,6 @@ Route::view('/', 'welcome') -> name('welcome');
 
 
 
-
-
-
 Route::middleware('auth')->group(function () {
     //middleware auth: verifica si el usuario esta autenticado o ha hecho login con anterioridad
     //Si no esta autenticado lo redirecciona a log in
@@ -31,6 +28,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/categorias', function(){
         return view("categorias.index");
     })->name("categorias.index");
+
+    Route::get('/events', function(){
+        return view("events.eventos");
+    })->name("events.eventos");
+
+    Route::get('/bookings', function(){
+        return view("bookings.reserva");
+    })->name("bookings.reserva");
+
+    Route::post('categorias/{{categoria}}', function($categoria){
+        return "Procesando productos... $categoria";
+    });
 });
 
 require __DIR__.'/auth.php';

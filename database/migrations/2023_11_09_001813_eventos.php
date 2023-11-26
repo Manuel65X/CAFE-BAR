@@ -8,24 +8,21 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('Events', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre_evento');
+            $table->date('fecha_evento');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('personal_access_tokens');
+        //
     }
 };
