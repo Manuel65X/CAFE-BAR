@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/categorias', function(){
         return view("categorias.index");
     })->name("categorias.index");
+
+    Route::get('/categorias/create', [CategoriaController::class,'create']);
 
     Route::get('/events', function(){
         return view("events.eventos");
