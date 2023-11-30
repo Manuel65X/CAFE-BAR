@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +28,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/categorias', function () {
-        return view("categorias.index");
-    })->name("categorias.index");
-
-    Route::get('/categorias/create', [CategoriaController::class, 'create'])->name('categorias.create');
+ 
+    Route::get('/productos', function () {
+        return view("Productos.productos");
+    })->name("Productos.productos");
 
     Auth::routes(['register' => false, 'reset' => false]);
 
     Route::resource('user', UserController::class)->middleware('auth');
 
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/categorias/create', [CategoriaController::class, 'create']);
+        
         Route::get('/events', function () {
             return view("events.eventos");
         })->name("events.eventos");
@@ -47,10 +47,6 @@ Route::middleware('auth')->group(function () {
             return view("bookings.reserva");
         })->name("bookings.reserva");
 
-        Route::post('categorias/{categoria}', function ($categoria) {
-            return "Procesando productos en la categoría: $categoria";
-        })->name('productos.procesar');
+        
     });
 });
-
-require __DIR__.'/auth.php';
