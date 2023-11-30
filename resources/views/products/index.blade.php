@@ -1,21 +1,16 @@
-@extends('layouts.app')
 
-@section('template_title')
-    Product
-@endsection
-
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Product') }}
+        </h2>
+    </x-slot>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Product') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
@@ -72,4 +67,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>

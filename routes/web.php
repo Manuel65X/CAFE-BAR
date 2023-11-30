@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 
@@ -29,9 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
  
-    Route::get('/productos', function () {
-        return view("Productos.productos");
-    })->name("Productos.productos");
+    Route::resource('products', ProductController::class);
 
     Auth::routes(['register' => false, 'reset' => false]);
 
@@ -50,3 +48,7 @@ Route::middleware('auth')->group(function () {
         
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

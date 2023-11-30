@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        {{ __('Create') }} Product
+    </h2>
+</x-slot>
 
-@section('template_title')
-    {{ __('Create') }} Product
-@endsection
-
-@section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('products.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('product.form')
+                            @include('products.form')
 
                         </form>
                     </div>
@@ -27,4 +27,4 @@
             </div>
         </div>
     </section>
-@endsection
+</x-app-layout>

@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $products = Product::paginate();
 
-        return view('product.index', compact('products'))
+        return view('products.index', compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * $products->perPage());
     }
 
@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function create()
     {
         $product = new Product();
-        return view('product.create', compact('product'));
+        return view('products.create', compact('product'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('product.show', compact('product'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -74,7 +74,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('product.edit', compact('product'));
+        return view('products.edit', compact('product'));
     }
 
     /**

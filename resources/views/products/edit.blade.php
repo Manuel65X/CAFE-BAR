@@ -1,10 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
 
-@section('template_title')
-    {{ __('Update') }} Product
-@endsection
-
-@section('content')
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        {{ __('Update') }} Product
+    </h2>
+</x-slot>
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -20,7 +20,7 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('product.form')
+                            @include('products.form')
 
                         </form>
                     </div>
@@ -28,4 +28,4 @@
             </div>
         </div>
     </section>
-@endsection
+<x-app-layout>
