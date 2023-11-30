@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<x-guest-layout>
 
 @vite('resources/css/app.css')
 <div class="container">
@@ -70,4 +70,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-guest-layout>
