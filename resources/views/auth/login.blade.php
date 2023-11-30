@@ -1,3 +1,7 @@
+@extends('layouts.app')
+@section('content')
+<div class=" pt-12 pb-10">
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
